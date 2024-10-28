@@ -1,0 +1,92 @@
+10.19 15:48
+test1
+<!-- 创建页面布局 -->
+    <div class="container">
+        <h1>注册</h1><hr>
+        <p>请输入用户名、邮箱、密码以注册</p>
+        <div class="row">
+            <span>username:</span>
+            <input type="text" class="edit">
+        </div>
+        <div class="row">
+            <span>email:</span>
+            <input type="text" class="edit">
+        </div>
+        <div class="row">
+            <span>password:</span>
+            <input type="password" class="edit" value="">
+        </div>
+        <div class="row">
+            <input type="button" value="注册" class="signup">
+        </div>
+    </div>
+<!-- 调整样式 -->
+    <style>
+        * {
+            margin: 0; /*外边距*/
+            padding: 0;/*内边距*/
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;/*整体居中 */
+        }
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+        }
+        p {
+            color: gray;
+            text-align: center;
+            font-size: 15px;
+            padding: 10px;
+        }
+        .row {
+            align-items: center;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        span {
+            width: 100px;
+        }
+        .signup {
+            width: 250px;
+            height: 30px;
+            color: white;
+            background-color: orange;
+            border: none;
+        }
+        .signup:active {
+            background-color: cornflowerblue;
+        }/*设置鼠标按下后的按钮背景色*/
+    </style>
+<!-- 实现提交 -->
+    <script>
+        //点击按钮 注册点击事件
+        var signup = document.querySelector('.signup');
+        signup.onclick = function(){
+            //获取edit节点所有内容 
+            var edits = document.querySelectorAll('.edit');
+            //在控制台显示username已注册成功！您的账号为：email
+            var name = edits[0].value;
+            var mail = edits[1].value;
+            var pw = edits[2].value;
+            console.log(name+'已注册成功！ 您的账号为：'+mail);
+            if(name == ''||mail == ''||pw == ''){
+                alert('注册失败！请正确输入！');
+                return;
+            }
+            //构建HTML元素 新增一个div节点
+            var row = document.createElement('div')
+            row.className = 'row';
+            row.innerHTML = name+'已注册成功！ 您的账号为：'+mail;
+            //添加新节点 在网页上显示注册成功
+            var container = document.querySelector('.container');
+            container.appendChild(row);
+            //注册完成清理输入框    
+            for(var i = 0;i < edits.length;i++){
+                edits[i].value = '';
+            }
+        }
+    </script>
+
