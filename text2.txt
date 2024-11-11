@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>用户登录/注册</title>
+  <script>
+    function showLogin() {
+      document.getElementById('registerForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    }
+
+    function showRegister() {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('registerForm').style.display = 'block';
+    }
+  </script>
+</head>
+
+<body>
+  <h1>用户登录/注册</h1>
+  <button onclick="showLogin()">登录</button>
+  <button onclick="showRegister()">注册</button>
+
+  <form id="loginForm" style="display:none" action="login.php" method="post">
+    <label for="loginUsername">用户名:</label><br>
+    <input type="text" id="loginUsername" name="loginUsername"><br>
+    <label for="loginPassword">密码:</label><br>
+    <input type="password" id="loginPassword" name="loginPassword"><br>
+    <input type="submit" value="登录">
+  </form>
+
+  <form id="registerForm" style="display:none" action="register.php" method="post" onsubmit="return validateRegisterForm()">
+    <label for="username">用户名:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">密码:</label><br>
+    <input type="password" id="password" name="password" required><br>
+    <label for="confirmPassword">确认密码:</label><br>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+    <label for="email">邮箱:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    <input type="submit" value="注册">
+  </form>
+
+  <script>
+    function validateRegisterForm() {
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+      if (password!== confirmPassword) {
+        alert('两次密码输入不一致');
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+
+</html>
