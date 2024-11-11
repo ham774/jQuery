@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enhanced Blog Management System</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #333;
+            border-top-width: 5px;
+            border-left-width: 5px;
+            border-right-width: 5px;
+            border-bottom-width: 1px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #009688;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+       .header {
+            width: 100%;
+            height: 80px;
+            background-color: #2196F3;
+            font-size: 24px;
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="header">Enhanced Blog Management System</h2>
+    <table id="blogTable">
+        <tr>
+            <th>Post ID</th>
+            <th>Author ID</th>
+            <th>Post Title</th>
+            <th>Content</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/posts',
+                type: 'GET',
+                success: function (response) {
+                    console.log('Response:', response);
+                    let posts = response;
+                    posts.forEach(post => {
+                        $("#blogTable").append(
+                            "<tr>" +
+                            "<td>" + post.id + "</td>" +
+                            "<td>" + post.userId + "</td>" +
+                            "<td>" + post.title + "</td>" +
+                            "<td>" + post.body + "</td>" +
+                            "<td><button class='editPostBtn'>Edit</button><button class='deletePostBtn'>Delete</button></td>" +
+                            "</tr>"
+                        );
+                    });
+
+                    // Event listeners for edit and delete buttons
+                    $(".editPostBtn").on("click", function () {
+                        alert("Edit functionality coming soon!");
+                    });
+
+                    $(".deletePostBtn").on("click", function () {
+                        alert("Delete functionality coming soon!");
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error("An error occurred: " + error);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
