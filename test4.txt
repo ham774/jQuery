@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Zoo Management Table</title>
+    <style>
+       .edit-btn {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+       .edit-btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+       .delete-btn {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+       .delete-btn:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+       .view-btn {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+       .view-btn:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Zoo Management Staff Table</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Contact</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Zookeeper</td>
+                    <td>123-456-7890</td>
+                    <td>
+                        <button class="btn btn-sm edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="btn btn-sm delete-btn"><i class="fas fa-trash"></i> Delete</button>
+                        <button class="btn btn-sm view-btn"><i class="fas fa-eye"></i> View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>Manager</td>
+                    <td>987-654-3210</td>
+                    <td>
+                        <button class="btn btn-sm edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="btn btn-sm delete-btn"><i class="fas fa-trash"></i> Delete</button>
+                        <button class="btn btn-sm view-btn"><i class="fas fa-eye"></i> View</button>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+</body>
+
+</html>
+ 
